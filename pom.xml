@@ -1,60 +1,63 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.1.5</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
-	<groupId>com.retail.grocery</groupId>
-	<artifactId>promotion</artifactId>
-	<version>1.0.1</version>
-	<name>promotion</name>
-	<description>Demo project for Spring Boot</description>
-	<properties>
-		<java.version>17</java.version>
-	</properties>
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>1.2.6</version>
-		</dependency>
-	</dependencies>
+    <!-- Inherit from Spring Boot's parent POM -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.1.5</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
 
-<!--	<build>-->
-<!--		<plugins>-->
-<!--			<plugin>-->
-<!--				<groupId>org.springframework.boot</groupId>-->
-<!--				<artifactId>spring-boot-maven-plugin</artifactId>-->
-<!--				<configuration>-->
-<!--					<image>-->
-<!--						<builder>paketobuildpacks/builder-jammy-base:latest</builder>-->
-<!--					</image>-->
-<!--				</configuration>-->
-<!--			</plugin>-->
-<!--		</plugins>-->
-<!--	</build>-->
+    <!-- Project information -->
+    <groupId>io.github.mouldyvase</groupId>
+    <artifactId>promotion</artifactId>
+    <version>1.0.1</version>
+    <name>promotion</name>
+    <description>Demo project for Spring Boot</description>
 
-</project>
+    <!-- Project properties -->
+    <properties>
+        <java.version>17</java.version>
+    </properties>
+
+    <!-- Dependencies -->
+    <dependencies>
+        <!-- ... your dependencies ... -->
+    </dependencies>
+
+    <!-- Distribution management -->
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
+    <!-- Build plugins -->
+    <build>
+        <plugins>
+            <!-- ... other plugins ... -->
+
+            <!-- Sign artifacts with GPG -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.5</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                        <configuration>
+                            <keyname>6AA3C95D534E3D780B

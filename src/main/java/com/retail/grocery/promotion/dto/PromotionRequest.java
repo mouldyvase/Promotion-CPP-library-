@@ -5,13 +5,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
 public class PromotionRequest {
 
-    private String couponCode;
-    private double totalAmount;
+    private String couponCode; // The coupon code entered by the user
+    private double totalAmount; // The total amount of the cart
 
     public String getCouponCode() {
         return couponCode;
